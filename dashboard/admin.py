@@ -12,3 +12,5 @@ class IngredienteAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Produto, ProdutoAdmin)
 admin.site.register(models.Ingrediente, IngredienteAdmin)
+
+
