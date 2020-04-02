@@ -30,13 +30,13 @@ ALLOWED_HOSTS = ['limasburger.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'dashboard'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dashboard',
 ]
 
 MIDDLEWARE = [

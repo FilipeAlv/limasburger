@@ -17,7 +17,7 @@ class Produto(models.Model):
         ("Indisponível", "Inisponível"),
     )
     nome = models.TextField(max_length=100)
-    valor = models.DecimalField()
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=100, choices=status_choices)
     ingredientes = models.ManyToManyField(to=Ingrediente)
     
