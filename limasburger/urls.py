@@ -20,6 +20,7 @@ from dashboard import views
 urlpatterns = [
     path('', admin.site.urls),
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
+    path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('buscar/produtos/cont', views.contarProdutos),
 ]
 
