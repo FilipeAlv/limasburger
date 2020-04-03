@@ -16,3 +16,4 @@ def contarProdutos(request):
     quant = models.Produto.objects.all().count()
     jsn = '[{"quantidade" : "'+str(quant)+'"}]'
     return HttpResponse(jsn)
+
