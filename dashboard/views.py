@@ -9,6 +9,6 @@ def listarProdutosCatalogo(request, init, fim):
     return HttpResponse(serializers.serialize("json", produtos))
 
 def contarProdutos(request):
-    quant = models.Questao.objects.all().count()
+    quant = models.Produto.objects.all().count()
     jsn = '[{"quantidade" : "'+str(quant)+'"}]'
     return HttpResponse(jsn)
