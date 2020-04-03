@@ -5,7 +5,7 @@ class Ingrediente(models.Model):
         ("Disponível", "Disponível"),
         ("Indisponível", "Inisponível"),
     )
-    nome = models.TextField(max_length=100)
+    nome = models.CharField(max_length=100)
     status = models.CharField(max_length=100, choices=status_choices)
 
     def __str__(self):
@@ -16,7 +16,7 @@ class Produto(models.Model):
         ("Disponível", "Disponível"),
         ("Indisponível", "Inisponível"),
     )
-    nome = models.TextField(max_length=100)
+    nome = models.CharField(max_length=100)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=100, choices=status_choices)
     ingredientes = models.ManyToManyField(to=Ingrediente)

@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dashboard import views
 
 urlpatterns = [
     path('', admin.site.urls),
+    path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
 ]
 
 admin.site.site_header = 'Lima\'s Burger'
+admin.site.site_title = 'Administrador'
+admin.site.index_title = 'Pagina de Administração'
