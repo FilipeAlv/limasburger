@@ -17,3 +17,8 @@ def contarProdutos(request):
     jsn = '[{"quantidade" : "'+str(quant)+'"}]'
     return HttpResponse(jsn)
 
+def contarProdutosFilter(request, nome, ignore):
+    quant = models.Produto.objects.filter(nome__contains = nome, pk__gte = ignore+1).count()
+    jsn = '[{"quantidade" : "'+str(quant)+'"}]'
+    return HttpResponse(jsn)
+

@@ -22,6 +22,7 @@ urlpatterns = [
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('produtos/cont', views.contarProdutos),
+    path('produtos/cont/<str:nome>-<int:ignore>', views.contarProdutosFilter),
 ]
 
 admin.site.site_header = 'Lima\'s Burger'
