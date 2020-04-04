@@ -8,6 +8,10 @@ def listarProdutosCatalogo(request, init, fim):
     produtos = models.Produto.objects.all()[init:fim]
     return HttpResponse(serializers.serialize("json", produtos))
 
+def listarProdutosFilter(request, nome, ignore):
+    produtos = models.Produto.objects.filter(nome__contains = nome, pk__gte = ignore+1)
+    return HttpResponse(serializers.serialize("json", produtos))
+
 def listarProdutosPorNome(request, nome):
     produtos = models.Produto.objects.filter(nome__contains=nome)
     return HttpResponse(serializers.serialize("json", produtos))
