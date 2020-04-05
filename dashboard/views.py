@@ -2,6 +2,8 @@ from django.shortcuts import render
 from dashboard import models
 from django.http import HttpResponse
 from django.core import serializers
+from django.conf import settings
+from django.shortcuts import redirect
 
 
 def listarProdutosCatalogo(request, init, fim):
