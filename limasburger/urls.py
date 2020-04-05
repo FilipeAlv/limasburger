@@ -28,6 +28,7 @@ urlpatterns = [
     path('produtos/cont/<str:nome>-<int:ignore>', views.contarProdutosFilter),
     path('media/<str:path>', views.buscarImagem),
 ]
+
 admin.site.site_header = 'Lima\'s Burger'
 admin.site.site_title = 'Administrador'
 admin.site.index_title = 'Pagina de Administração'
