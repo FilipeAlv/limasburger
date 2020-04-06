@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 
 
 def listarProdutosCatalogo(request, init, fim):
-    produtos = models.Produto.objects.all()[init:fim]
+    produtos = models.Produto.objects.all().order_by('pk')[init:fim]
     return HttpResponse(serializers.serialize("json", produtos))
 
 def buscarImagem(request, path):
