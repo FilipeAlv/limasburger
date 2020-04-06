@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['limasburger.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['limasburger.herokuapp.com', 'localhost', 'ec2-18-229-29-129.sa-east-1.compute.amazonaws.com']
 
 
 # Application definition
