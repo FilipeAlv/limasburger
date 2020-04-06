@@ -11,7 +11,8 @@ def listarProdutosCatalogo(request, init, fim):
     return HttpResponse(serializers.serialize("json", produtos))
 
 def buscarImagem(request, path):
-    return render(request, 'imagem.html')
+    path = "media/"+path
+    return render(request, 'imagem.html', {'path': path})
 
 def listarProdutosFilter(request, nome, ignore):
     produtos = models.Produto.objects.filter(nome__contains = nome, pk__gte = ignore+1)
