@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-SECRET_KEY = g$!(j!sfy%0@dgn$ykyzez1f91-cz&g*f_f8!(mgccg1m@jsvm
+SECRET_KEY = 'g$!(j!sfy%0@dgn$ykyzez1f91-cz&g*f_f8!(mgccg1m@jsvm'
 DEBUG=False
 
 ALLOWED_HOSTS = ['limasburger.herokuapp.com', 'localhost', 'ec2-18-229-29-129.sa-east-1.compute.amazonaws.com']
