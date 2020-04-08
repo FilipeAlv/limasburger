@@ -28,8 +28,23 @@ urlpatterns = [
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('produtos/cont', views.contarProdutos),
     path('produtos/cont/<str:nome>-<int:ignore>', views.contarProdutosFilter),
-    path('media/<str:path>', views.buscarImagem),
+    # path('media/<str:path>', views.buscarImagem)
+
 ]
+
+
+#from django.conf import settings
+#urlpatterns += patterns(
+#    '',
+#    (
+#        r'^media/(?P<path>.*)$',
+#        'django.views.static.serve',
+#        {
+#            'document_root': settings.MEDIA_ROOT,
+#            'show_indexes': True
+#        }
+#    ),
+#)
 admin.site.site_header = 'Lima\'s Burger'
 admin.site.site_title = 'Administrador'
 admin.site.index_title = 'Pagina de Administração'
