@@ -1,2 +1,3 @@
 <!DOCTYPE html>
-<img src= "static/media" {{ path  }} alt="My image">
+{%load static%}
+<img src= {% static path  %} alt="My image">
