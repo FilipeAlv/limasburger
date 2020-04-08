@@ -32,3 +32,6 @@ def contarProdutosFilter(request, nome, ignore):
     jsn = '[{"quantidade" : "'+str(quant)+'"}]'
     return HttpResponse(jsn)
 
+def listarIngredientePorId(request, id):
+    ingreadientes = models.Ingrediente.objects.filter(id=id)
+    return HttpResponse(serializers.serialize("json", ingreadientes))
