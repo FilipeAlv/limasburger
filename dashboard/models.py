@@ -24,3 +24,9 @@ class Produto(models.Model):
     def __str__(self):
         return self.nome
 
+class ProdutoPedido(models.Model):
+    quantidade = models.IntegerField(blank=False)
+    produto = models.ForeignKey(to=Produto, on_delete=models.CASCADE, blank=False)
+    def __str__(self):
+        return self.produto.nome
+

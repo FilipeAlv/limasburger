@@ -22,6 +22,10 @@ def listarProdutosPorNome(request, nome):
     produtos = models.Produto.objects.filter(nome__contains=nome)
     return HttpResponse(serializers.serialize("json", produtos))
 
+def listarProdutosPorId(request, id):
+    produtos = models.Produto.objects.filter(id=id)
+    return HttpResponse(serializers.serialize("json", produtos))
+
 def contarProdutos(request):
     quant = models.Produto.objects.all().count()
     jsn = '[{"quantidade" : "'+str(quant)+'"}]'
