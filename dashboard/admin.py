@@ -17,5 +17,8 @@ class ProdutoPedidoAdmin(admin.ModelAdmin):
 admin.site.register(models.Produto, ProdutoAdmin)
 admin.site.register(models.Ingrediente, IngredienteAdmin)
 admin.site.register(models.ProdutoPedido, ProdutoPedidoAdmin)
+admin.site.register(models.Endereco)
+admin.site.register(models.Usuario)
+
 
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Ingrediente(models.Model):
     status_choices = (
@@ -30,3 +31,16 @@ class ProdutoPedido(models.Model):
     def __str__(self):
         return self.produto
 
+class Endereco(models.Model):
+    rua = models.CharField(max_length=255, blank=False)
+    bairro = models.CharField(max_length=255, blank=False)
+    numero = models.CharField(max_length=10, blank=False)
+    referencia = models.TextField(blank=False)
+    
+
+class Usuario(models.Model):
+    user = models.OneToOneField(User, related_name='profile', on_delete="cascade")
+    nome = models.CharField(max_length=255, blank=False)
+    enderecos = models.ManyToManyField(to=Endereco)
+    contato = models.CharField(max_length=20, blank=False)
+    status = models.CharField(max_length=30, blank=False)

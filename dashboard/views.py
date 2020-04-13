@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.core import serializers
 from django.conf import settings
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 
 def listarProdutosCatalogo(request, init, fim):
@@ -43,3 +44,40 @@ def contarProdutosFilter(request, nome, ignore):
 def listarIngredientePorId(request, id):
     ingreadientes = models.Ingrediente.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", ingreadientes))
+    
+
+#add
+
+def adicionarUsuario(request, nome,  usuario, email, senha, contato):
+    user = User()
+    user.username = usuario
+    user.password = senha
+    user.email = email
+
+    user.save()
+
+    usuario = models.Usuario()
+    usuario.user = user
+    usuario.contato = contato
+    usuario.nome = nome
+    usuario.status = "Ativo"
+
+    usuario.save()
+
+    usuarios = models.Usuario.objects.filter(user=usuario.user)
+
+    return HttpResponse(serializers.serialize("json", usuarios))
+
+    
+
+#autenticar
+
+def autenticar(request, login, senha):
+    try:
+        user = authenticate(request, username=login, password=senha)
+        usuarios = models.Usuario.objects.filter(user = user.id)
+        return HttpResponse(serializers.serialize("json", usuarios))
+    except:
+        s="[{"
+        s+='"error":"error"}]'
+        return HttpResponse(s)

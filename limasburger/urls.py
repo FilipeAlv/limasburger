@@ -31,6 +31,10 @@ urlpatterns = [
     path('produtos/cont', views.contarProdutos),
     path('produtos/cont/<str:nome>-<int:ignore>', views.contarProdutosFilter),
     path('buscar/ingrediente/<int:id>', views.listarIngredientePorId),
+
+    
+    path('add/usuario/<str:nome>&<str:usuario>&<str:email>&<str:senha>&<str:contato>', views.adicionarUsuario),
+
 ]
 
 
