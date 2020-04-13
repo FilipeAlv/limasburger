@@ -39,7 +39,7 @@ class Endereco(models.Model):
     
 
 class Usuario(models.Model):
-    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='profile', on_delete=models.CASCADE)
     nome = models.CharField(max_length=255, blank=False)
     enderecos = models.ManyToManyField(to=Endereco)
     contato = models.CharField(max_length=20, blank=False)
