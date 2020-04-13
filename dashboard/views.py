@@ -48,11 +48,10 @@ def listarIngredientePorId(request, id):
 
 #add
 
-def adicionarUsuario(request, nome,  usuario, email, senha, contato):
+def adicionarUsuario(request, nome, email, senha, contato):
     user = User()
-    user.username = usuario
+    user.username = email
     user.password = senha
-    user.email = email
 
     user.save()
 
