@@ -27,7 +27,7 @@ urlpatterns = [
     path('buscar/produtos/<str:nome>-<int:ignore>', views.listarProdutosFilter),
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('buscar/produtos/<int:id>', views.listarProdutosPorId),
-    
+
     path('buscar/usuario/<int:id>', views.listarUsuarioPorId),
     path('buscar/usuario/<str:email>', views.listarUsuarioPorEmail),
     
@@ -39,7 +39,7 @@ urlpatterns = [
     path('buscar/ingrediente/<int:id>', views.listarIngredientePorId),
 
     
-    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:co    '       '''''''ntato>', views.adicionarUsuario),
+    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>', views.adicionarUsuario),
 
 ]
 
