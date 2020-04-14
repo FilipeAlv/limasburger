@@ -24,7 +24,7 @@ SECRET_KEY = 'g$!(j!sfy%0@dgn$ykyzez1f91-cz&g*f_f8!(mgccg1m@jsvm'
 DEBUG=False
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['192.168.2.120','*']
 
 
 # Application definition
