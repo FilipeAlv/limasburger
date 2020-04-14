@@ -50,7 +50,7 @@ def listarUsuarioPorEmail(request, email):
     return HttpResponse(serializers.serialize("json", usuarios))
 
 def listarUsuarioPorId(request, id):
-    usuarios = Usuario.objects.filter(pk=id)
+    usuarios = models.Usuario.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", usuarios))
 
 def listarEnderecoPorId(request, id):

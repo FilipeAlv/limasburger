@@ -38,7 +38,7 @@ urlpatterns = [
     path('buscar/ingrediente/<int:id>', views.listarIngredientePorId),
 
     
-    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>', views.adicionarUsuario),
+    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:co    '       '''''''ntato>', views.adicionarUsuario),
 
 ]
 
