@@ -54,7 +54,7 @@ def listarUsuarioPorId(request, id):
     return HttpResponse(serializers.serialize("json", usuarios))
 
 def listarEnderecoPorId(request, id):
-    enderecos = Endereco.objects.filter(pk=id)
+    enderecos = models.Endereco.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", enderecos))
 
 #add
