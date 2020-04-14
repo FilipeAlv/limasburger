@@ -46,7 +46,7 @@ def listarIngredientePorId(request, id):
     return HttpResponse(serializers.serialize("json", ingreadientes))
 
 def listarUsuarioPorEmail(request, email):
-    usuarios = models.Ingrediente.objects.filter(email=email)
+    usuarios = User.objects.filter(username=email)
     return HttpResponse(serializers.serialize("json", usuarios))
 
 #add
