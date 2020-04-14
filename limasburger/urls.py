@@ -28,6 +28,9 @@ urlpatterns = [
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('buscar/produtos/<int:id>', views.listarProdutosPorId),
     path('buscar/usuario/<str:email>', views.listarUsuarioPorEmail),
+    path('buscar/usuario/id=<int:id>', views.listarUsuarioPorId),
+
+    path('buscar/enderecos/<int:id>', views.listarEnderecoPorId),
 
     path('buscar/produtopedido/<int:id>', views.listarProdutoPedidoPorId),
     path('produtos/cont', views.contarProdutos),

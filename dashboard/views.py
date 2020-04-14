@@ -49,6 +49,14 @@ def listarUsuarioPorEmail(request, email):
     usuarios = User.objects.filter(username=email)
     return HttpResponse(serializers.serialize("json", usuarios))
 
+def listarUsuarioPorId(request, id):
+    usuarios = Usuario.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", usuarios))
+
+def listarEnderecoPorId(request, id):
+    enderecos = Endereco.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", enderecos))
+
 #add
 
 def adicionarUsuario(request, nome, email, senha, contato):
