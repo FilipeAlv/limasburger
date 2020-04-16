@@ -78,6 +78,25 @@ def adicionarUsuario(request, nome, email, senha, contato):
 
     return HttpResponse(serializers.serialize("json", usuarios))
 
+def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
+    usuario = models.Usuario.objects.get(id=usuario)
+    
+    endereco = models.Endereco()
+    endereco.bairro = bairro
+    endereco.rua = rua
+    endereco.numero = numero
+    endereco.referencia = referencia
+    
+    endereco.save()
+    
+    usuario.enderecos.add(endereco)
+
+    
+
+    usuario.save()
+
+    return HttpResponse("['status':'sucesso']")
+
     
 
 #autenticar

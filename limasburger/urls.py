@@ -40,6 +40,7 @@ urlpatterns = [
 
     
     path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>', views.adicionarUsuario),
+    path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>', views.adicionarEndereco),
 
 ]
 
