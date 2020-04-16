@@ -95,7 +95,7 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
 
     usuario.save()
 
-    return HttpResponse("['status':'sucesso']")
+    return HttpResponse("[{'status':'sucesso'}]")
 
     
 
