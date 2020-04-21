@@ -101,9 +101,9 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
 
 #autenticar
 
-def autenticar(request, login, senha):
+def autenticar(request, email, senha):
     try:
-        user = authenticate(request, username=login, password=senha)
+        user = authenticate(request, username=email, password=senha)
         usuarios = models.Usuario.objects.filter(user = user.id)
         return HttpResponse(serializers.serialize("json", usuarios))
     except:
