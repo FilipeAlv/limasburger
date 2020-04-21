@@ -5,6 +5,7 @@ from django.core import serializers
 from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 def listarProdutosCatalogo(request, init, fim):
