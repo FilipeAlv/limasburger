@@ -18,7 +18,9 @@ class ProdutoPedidoAdmin(admin.ModelAdmin):
     list_display = ['produto', 'quantidade']
 
 
-
+class PedidoAdmin(admin.ModelAdmin):
+    model = models.Pedido
+    list_display = ['cliente', 'status', 'dataHoraPedido','id','cliente']
 
 class UserAdmin(admin.ModelAdmin):
 	model = models.Usuario
@@ -31,5 +33,5 @@ admin.site.register(models.Ingrediente, IngredienteAdmin)
 admin.site.register(models.ProdutoPedido, ProdutoPedidoAdmin)
 admin.site.register(models.Endereco)
 admin.site.register(models.Usuario, UserAdmin)
-
+admin.site.register(models.Pedido, PedidoAdmin)
 
