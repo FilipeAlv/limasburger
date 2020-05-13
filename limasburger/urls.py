@@ -27,6 +27,8 @@ urlpatterns = [
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('buscar/produtos/<int:id>', views.listarProdutosPorId),
 
+
+
     path('buscar/usuario/<int:id>', views.listarUsuarioPorId),
     path('buscar/usuario/<str:email>', views.listarUsuarioPorEmail),
 
@@ -44,6 +46,8 @@ urlpatterns = [
          views.adicionarUsuario),
     path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>',
          views.adicionarEndereco),
+
+     path('buscar/pedido/<int:id>', views.listarPedidoPorUser),
 
 ]
 
