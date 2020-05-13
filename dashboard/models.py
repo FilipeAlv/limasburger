@@ -51,7 +51,8 @@ class Usuario(models.Model):
     enderecos = models.ManyToManyField(to=Endereco)
     contato = models.CharField(max_length=20, blank=False)
     status = models.CharField(max_length=30, blank=False)
-
+    def __str__(self):
+        return self.nome + " - " + self.id
 
 class Pedido(models.Model):
     CHOICES_STATUS = [
