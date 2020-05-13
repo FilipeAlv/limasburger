@@ -1,5 +1,6 @@
 from django.contrib import admin
 from dashboard import models
+from django.contrib.auth.models import User
 
 
 class ProdutoAdmin(admin.ModelAdmin):
@@ -25,10 +26,15 @@ class UserAdmin(admin.ModelAdmin):
 	model = models.Usuario
 	list_display = ['nome','id']
 
+class AuthAdmin(admin.ModelAdmin):
+    model = User
+    list_display = ['id']
+
 admin.site.register(models.Produto, ProdutoAdmin)
 admin.site.register(models.Ingrediente, IngredienteAdmin)
 admin.site.register(models.ProdutoPedido, ProdutoPedidoAdmin)
 admin.site.register(models.Endereco)
 admin.site.register(models.Usuario, UserAdmin)
 admin.site.register(models.Pedido, PedidoAdmin)
+admin.site.register(User, AuthAdmin)
 
