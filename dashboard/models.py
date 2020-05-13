@@ -72,7 +72,7 @@ class Pedido(models.Model):
     dataHoraEntrega = models.CharField(
         'Data/Hora da entrega', max_length=20, blank=True)
     formaPagamento = models.CharField(
-        'Forma de pagamento', choices=FORMA_PAGAMENTO)
+        'Forma de pagamento', choices=FORMA_PAGAMENTO, max_length=50)
     ValorTotal = models.DecimalField(
         'Valor total', max_digits=6, decimal_places=2)
     Endereco = models.ForeignKey(
