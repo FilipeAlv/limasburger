@@ -30,7 +30,7 @@ def listarProdutosPorNome(request, nome):
 
 
 def listarPedidoPorUser(request, id):
-    cliente = models.Usuario.objects.get(pk=id)
+    cliente = models.Usuario.objects.filter(id=id)
     pedidos = models.Pedido.objects.filter(cliente=cliente)
     return HttpResponse(serializers.serialize("json", pedidos))
 
