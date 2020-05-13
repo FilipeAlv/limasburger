@@ -52,32 +52,3 @@ class Usuario(models.Model):
     contato = models.CharField(max_length=20, blank=False)
     status = models.CharField(max_length=30, blank=False)
 
-'''
-class Pedido(models.Model):
-    CHOICES_STATUS = [
-        ('Feito', 'Feito'),
-        ('Recebido', 'Recebido'),
-        ('Iniciado', 'Iniciado'),
-        ('Saiu para entrega', 'Saiu para entrega'),
-        ('Entregue', 'Entregue'),
-    ]
-
-    FORMA_PAGAMENTO = [
-        ('Dinheiro', 'Dinheiro'),
-        ('Cartão', 'Cartão')
-    ]
-    produtosPedidos = models.ManyToManyField(to=ProdutoPedido)
-    status = models.CharField('Status', max_length=50,
-                              choices=CHOICES_STATUS, default='Feito')
-    dataHoraPedido = models.CharField(
-        'Data/Hora do pedido', max_length=20, blank=False)
-    dataHoraEntrega = models.CharField(
-        'Data/Hora da entrega', max_length=20, blank=True)
-    formaPagamento = models.CharField(
-        'Forma de pagamento', choices=FORMA_PAGAMENTO, max_length=50)
-    ValorTotal = models.DecimalField(
-        'Valor total', max_digits=6, decimal_places=2)
-    Endereco = models.ForeignKey(
-        Endereco, related_name='Endereco', on_delete=models.CASCADE)
-    cliente = models.ForeignKey(
-        Usuario, related_name='Usuario', on_delete=models.CASCADE)
