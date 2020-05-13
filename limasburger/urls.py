@@ -14,14 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from dashboard import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 
-
 urlpatterns = [
+    path('jet/', include('jet.urls', 'jet')),
     path('', admin.site.urls),
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
     path('buscar/produtos/<str:nome>-<int:ignore>', views.listarProdutosFilter),
@@ -30,9 +30,9 @@ urlpatterns = [
 
     path('buscar/usuario/<int:id>', views.listarUsuarioPorId),
     path('buscar/usuario/<str:email>', views.listarUsuarioPorEmail),
-    
+
     path('usuario/autenticar/<str:email>&<str:senha>', views.autenticar),
-    
+
     path('buscar/enderecos/<int:id>', views.listarEnderecoPorId),
 
     path('buscar/produtopedido/<int:id>', views.listarProdutoPedidoPorId),
@@ -40,9 +40,11 @@ urlpatterns = [
     path('produtos/cont/<str:nome>-<int:ignore>', views.contarProdutosFilter),
     path('buscar/ingrediente/<int:id>', views.listarIngredientePorId),
 
-    
-    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>', views.adicionarUsuario),
-    path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>', views.adicionarEndereco),
+
+    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>',
+         views.adicionarUsuario),
+    path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>',
+         views.adicionarEndereco),
 
 ]
 
