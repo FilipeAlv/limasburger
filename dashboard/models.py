@@ -52,7 +52,7 @@ class Usuario(models.Model):
     contato = models.CharField(max_length=20, blank=False)
     status = models.CharField(max_length=30, blank=False)
 
-
+'''
 class Pedido(models.Model):
     CHOICES_STATUS = [
         ('Feito', 'Feito'),
