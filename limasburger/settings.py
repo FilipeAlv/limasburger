@@ -30,7 +30,6 @@ ALLOWED_HOSTS = ['192.168.2.120','*']
 # Application definition
 
 INSTALLED_APPS = [
-    'jet', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
