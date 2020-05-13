@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    
+    path('jet/', include('jet.urls', 'jet')),
     path('', admin.site.urls),
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
     path('buscar/produtos/<str:nome>-<int:ignore>', views.listarProdutosFilter),

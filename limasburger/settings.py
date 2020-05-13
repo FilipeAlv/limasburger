@@ -21,15 +21,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 SECRET_KEY = 'g$!(j!sfy%0@dgn$ykyzez1f91-cz&g*f_f8!(mgccg1m@jsvm'
-DEBUG=False
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['192.168.2.120','*']
+ALLOWED_HOSTS = ['192.168.2.120', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-             os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
