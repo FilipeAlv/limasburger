@@ -25,7 +25,15 @@ def listarProdutosPorNome(request, nome):
     return HttpResponse(serializers.serialize("json", produtos))
 
 def listarPedidoPorUser(request, id):
-    pedidos = models.Pedido.objects.filter(cliente.pk=id)
+    
+    cliente = models.Usuario.objects.filter(id=id)
+    print("ID")
+    print(id)
+    print("Cliente")
+    print(cliente)
+    pedidos = models.Pedido.objects.filter(cliente=id)
+    print("Pedidos")
+    print(pedidos)
     return HttpResponse(serializers.serialize("json", pedidos))
 
 def listarProdutosPorId(request, id):
