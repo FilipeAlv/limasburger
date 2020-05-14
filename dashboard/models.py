@@ -80,4 +80,4 @@ class Pedido(models.Model):
     Endereco = models.ForeignKey(
         Endereco, related_name='Endereco', on_delete=models.CASCADE)
     cliente = models.ForeignKey(
-        User, related_name='Usuario', on_delete=models.CASCADE)
+        Usuario, related_name='Usuario', on_delete=models.CASCADE)
