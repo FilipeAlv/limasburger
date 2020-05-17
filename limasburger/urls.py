@@ -19,7 +19,6 @@ from dashboard import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('', admin.site.urls),
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
@@ -46,6 +45,9 @@ urlpatterns = [
          views.adicionarUsuario),
     path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>',
          views.adicionarEndereco),
+
+    path('editar/endereco/<int:id>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>',
+         views.editarEndereco),
 
      path('buscar/pedido/<int:id>', views.listarPedidoPorUser),
 

@@ -23,8 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g$!(j!sfy%0@dgn$ykyzez1f91-cz&g*f_f8!(mgccg1m@jsvm'
 DEBUG = False
 
-
-ALLOWED_HOSTS = ['192.168.2.120', '*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,7 +77,7 @@ WSGI_APPLICATION = 'limasburger.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:////{0}/myblog.sqlite'.format(BASE_DIR)
+        default='sqlite:////{0}/sqlite3.sqlite'.format(BASE_DIR)
     )
 }
 

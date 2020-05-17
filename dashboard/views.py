@@ -110,6 +110,19 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
 
     return HttpResponse('[{"status":"sucesso"}]')
 
+
+def editarEndereco(request, id, bairro, rua, numero, referencia):
+    endereco = models.Endereco.objects.get(id=id)
+
+    endereco.bairro = bairro
+    endereco.rua = rua
+    endereco.numero = numero
+    endereco.referencia = referencia
+    
+    endereco.save()
+
+    return HttpResponse('[{"status":"sucesso"}]')
+
     
 
 #autenticar
