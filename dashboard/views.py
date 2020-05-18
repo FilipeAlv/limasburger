@@ -124,7 +124,7 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     pedido.dataHoraEntrega = dataHoraEntrega
     pedido.dataHoraPedido = dataHoraPedido
     pedido.status = status
-    pedido.ValorTotal = valorTotal
+    pedido.ValorTotal = float(valorTotal)
     pedido.formaPagamento = formaPagamento
     print("Passou aqui")
     pedido.save()
