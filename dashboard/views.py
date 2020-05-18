@@ -117,8 +117,9 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def addPedido(request, id):
+def addPedido(request, id, iu):
     print(id)
+    print(iu)
 
     return HttpResponse('[{"status":"sucesso"}]')
 
