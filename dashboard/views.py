@@ -116,6 +116,7 @@ def addPedido(request, formaPagamento, status, cliente ,endereco, dataHoraEntreg
     print("Passou aqui")
     pedido.save()
 
+    return HttpResponse('[{"status":"sucesso"}]')
 def editarEndereco(request, id, bairro, rua, numero, referencia):
     endereco = models.Endereco.objects.get(id=id)
 
