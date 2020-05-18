@@ -126,7 +126,6 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     pedido.status = status
     pedido.ValorTotal = float(valorTotal)
     pedido.formaPagamento = formaPagamento
-    print("Passou aqui")
     pedido.save()
 
     return HttpResponse('[{"status":"sucesso"}]')
