@@ -25,16 +25,10 @@ def listarProdutosPorNome(request, nome):
     return HttpResponse(serializers.serialize("json", produtos))
 
 def listarPedidoPorUser(request, id):
-    
-    cliente = models.Usuario.objects.filter(id=id)
-    print("ID")
-    print(id)
-    print("Cliente")
-    print(cliente)
     pedidos = models.Pedido.objects.filter(cliente=id)
-    print("Pedidos")
-    print(pedidos)
     return HttpResponse(serializers.serialize("json", pedidos))
+
+
 
 def listarProdutosPorId(request, id):
     produtos = models.Produto.objects.filter(id=id)
@@ -110,6 +104,17 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
 
     return HttpResponse('[{"status":"sucesso"}]')
 
+def addPedido(request, formaPagamento, status, cliente ,endereco, dataHoraEntrega, dataHoraPedido, valorTotal):
+    pedido = models.Pedido()
+    pedido.cliente = models.Usuario.objects.get(id=cliente)
+    pedido.Endereco = models.Endereco.objects.get(id=endereco)
+    pedido.dataHoraEntrega = dataHoraEntrega
+    pedido.dataHoraPedido = dataHoraPedido
+    pedido.status = status
+    pedido.ValorTotal = valorTotal
+    pedido.formaPagamento = formaPagamento
+
+    pedido.save()
 
 def editarEndereco(request, id, bairro, rua, numero, referencia):
     endereco = models.Endereco.objects.get(id=id)
