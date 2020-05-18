@@ -118,8 +118,17 @@ def adicionarEndereco(request, usuario, bairro, rua, numero, referencia):
 
 
 def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntrega, dataHoraPedido, valorTotal):
+    pedido = models.Pedido()
+    pedido.cliente = models.Usuario.objects.get(id=cliente)
+    pedido.Endereco = models.Endereco.objects.get(id=endereco)
+    pedido.dataHoraEntrega = dataHoraEntrega
+    pedido.dataHoraPedido = dataHoraPedido
+    pedido.status = status
+    pedido.ValorTotal = valorTotal
+    pedido.formaPagamento = formaPagamento
+    print("Passou aqui")
+    pedido.save()
 
-    
     return HttpResponse('[{"status":"sucesso"}]')
 
 
