@@ -113,7 +113,7 @@ def addPedido(request, formaPagamento, status, cliente ,endereco, dataHoraEntreg
     pedido.status = status
     pedido.ValorTotal = valorTotal
     pedido.formaPagamento = formaPagamento
-
+    print("Passou aqui")
     pedido.save()
 
 def editarEndereco(request, id, bairro, rua, numero, referencia):
