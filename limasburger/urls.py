@@ -50,7 +50,7 @@ urlpatterns = [
          views.editarEndereco),
 
     path('buscar/pedido/<int:id>', views.listarPedidoPorUser),
-    path('add/pedido/<int:id>&<int:iu>',
+    path('add/pedido/<str:formaPagamento>&<str:status>&<int:cliente>&<int:endereco>&<str:dataHoraEntrega>&<str:dataHoraPedido>&<slug:valorTotal>',
          views.addPedido),
 
 ]
