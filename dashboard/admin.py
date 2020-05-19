@@ -15,7 +15,7 @@ class IngredienteAdmin(admin.ModelAdmin):
 
 class ProdutoPedidoAdmin(admin.ModelAdmin):
     model = models.ProdutoPedido
-    list_display = ['produto', 'quantidade']
+    list_display = ['produto', 'quantidade', 'id']
 
 
 class PedidoAdmin(admin.ModelAdmin):
