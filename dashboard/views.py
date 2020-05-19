@@ -35,7 +35,6 @@ def listarPedidoPorUser(request, id):
 
 
 def listarProdutosPorId(request, id):
-    print(Aqui)
     produtos = models.Produto.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", produtos))
 
@@ -43,7 +42,7 @@ def listarPorIdProduto(request, id):
     produtos = models.Produto.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", produtos))
 
-    
+
 def listarProdutoPedidoPorId(request, id):
     produto = models.ProdutoPedido.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", produto))
