@@ -126,15 +126,14 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     pedido.status = status
     pedido.ValorTotal = float(valorTotal)
     pedido.formaPagamento = formaPagamento
-    id = pedido.save()
-    print(id)
+    pedido.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def addProdutoPedido(request, quantidade, produtoId, pedidoId):
+def addProdutoPedido(request, quantidade, produtoId):
     produtoPedido = models.ProdutoPedido()
     produto = models.Produto.objects.get(id=produtoId)
-    pedido = models.Pedido.objects.get(id=pedidoId)
+    pedido = models.Pedido.objects.all().order_by("-id")[0]
 
     produtoPedido.produto = produto
     produtoPedido.quantidade = quantidade
