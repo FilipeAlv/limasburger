@@ -56,6 +56,10 @@ urlpatterns = [
          views.addProdutoPedido),
 
 
+    path('listar/listarPorIdProduto/<int:id>',
+         views.listarPorIdProduto),
+
+
 
 ]
 
