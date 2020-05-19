@@ -128,6 +128,21 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     pedido.formaPagamento = formaPagamento
     pedido.save()
 
+    return HttpResponse(serializers.serialize("json", pedido))
+
+
+def addProdutoPedido(request, quantidade, produtoId, pedidoId):
+    produtoPedido = models.ProdutoPedido()
+    produto = models.Produto.objects.get(id=produtoId)
+    pedido = models.Pedido.objects.get(id=pedidoId)
+
+    produtoPedido.produto = produto
+    produtoPedido.quantidade = quantidade
+    produtoPedido.save()
+
+    pedido.produtosPedidos.add(produtoPedido)
+    pedido.save()
+
     return HttpResponse('[{"status":"sucesso"}]')
 
 
