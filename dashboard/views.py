@@ -126,10 +126,9 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     pedido.status = status
     pedido.ValorTotal = float(valorTotal)
     pedido.formaPagamento = formaPagamento
-    pedido.save()
-
-   
-    return HttpResponse(serializers.serialize("json", pedido))
+    id = pedido.save()
+    print(id)
+    return HttpResponse('[{"status":"sucesso"}]')
 
 
 def addProdutoPedido(request, quantidade, produtoId, pedidoId):
