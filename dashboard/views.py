@@ -130,7 +130,7 @@ def addPedido(request, formaPagamento, status, cliente, endereco, dataHoraEntreg
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def addProdutoPedido(request, quantidade):
+def addProdutoPedido(request, quantidade, produtoId):
     produtoPedido = models.ProdutoPedido()
     produto = models.Produto.objects.get(id=produtoId)
     pedido = models.Pedido.objects.all().order_by("-id")[0]
