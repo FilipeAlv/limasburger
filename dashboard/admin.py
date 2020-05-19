@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class ProdutoAdmin(admin.ModelAdmin):
     model = models.Produto
-    list_display = ['nome', 'valor', 'status']
+    list_display = ['nome', 'valor', 'status','id']
 
 
 class IngredienteAdmin(admin.ModelAdmin):
