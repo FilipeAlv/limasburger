@@ -39,6 +39,7 @@ def listarProdutosPorId(request, id):
     produtos = models.Produto.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", produtos))
 
+
 def listarPorIdProduto(request, id):
     produtos = models.Produto.objects.filter(id=id)
     return HttpResponse(serializers.serialize("json", produtos))
@@ -85,7 +86,8 @@ def listarEnderecoPorId(request, id):
 
 
 def adicionarUsuario(request, nome, email, senha, contato):
-    senhaCrip = make_password(password=senha, salt=None, hasher='pbkdf2_sha256')
+    senhaCrip = make_password(
+        password=senha, salt=None, hasher='pbkdf2_sha256')
     user = User()
     user.username = email
     user.password = senhaCrip
@@ -170,15 +172,18 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
 
 def autenticar(request, email, senha):
     try:
-        senhaCrip = make_password(password=senha, salt=None, hasher='pbkdf2_sha256')
+        senhaCrip = make_password(
+            password=senha, salt=None, hasher='pbkdf2_sha256')
         print(senhaCrip)
-        corresponde = check_password(password=senha, encoded=senhaCrip)
+        user =  User.objects.get(username=email)
+        print(user)
+        corresponde = check_password(password=senha, encoded=user.password)
         if corresponde:
-            
+            print("Corresponde")
             user = authenticate(request, username=email, password=senhaCrip)
             usuarios = models.Usuario.objects.filter(user=user.id)
             return HttpResponse(serializers.serialize("json", usuarios))
-        
+
     except:
         s = "[{"
         s += '"error":"error"}]'
