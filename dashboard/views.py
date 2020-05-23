@@ -82,6 +82,13 @@ def listarEnderecoPorId(request, id):
     enderecos = models.Endereco.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", enderecos))
 
+
+def cancelarPedido(request, id):
+    pedido = models.Pedido.objects.get(id=id)
+    pedido.status = "Cancelado"
+    pedido.save()
+    return HttpResponse(serializers.serialize("json", pedido))
+
 # add
 
 

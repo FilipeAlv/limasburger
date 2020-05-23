@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+
     path('', admin.site.urls),
     path('buscar/produtos/<int:init>-<int:fim>', views.listarProdutosCatalogo),
     path('buscar/produtos/<str:nome>-<int:ignore>', views.listarProdutosFilter),
@@ -54,6 +55,10 @@ urlpatterns = [
          views.addPedido),
     path('add/addProdutoPedido/<int:quantidade>&<int:produtoId>',
          views.addProdutoPedido),
+
+    path('cancelar/pedido/<int:id>',
+         views.cancelarPedido),
+
 
 
     path('listar/listarPorIdProduto/<int:id>',
