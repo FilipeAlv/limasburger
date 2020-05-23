@@ -176,13 +176,12 @@ def autenticar(request, email, senha):
             password=senha, salt=None, hasher='pbkdf2_sha256')
         print(senhaCrip)
         user =  User.objects.get(username=email)
-        print("User")
         print(user)
         corresponde = check_password(password=senha, encoded=user.password)
         if corresponde:
             print("Corresponde")
-            user = authenticate(request, username=email, password=user.password)
-            print(user.id)
+            user = authenticate(request, username=email)
+            print("altenticou")
             usuarios = models.Usuario.objects.filter(user=user.id)
             return HttpResponse(serializers.serialize("json", usuarios))
 
