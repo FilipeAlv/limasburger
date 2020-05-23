@@ -89,7 +89,8 @@ def adicionarUsuario(request, nome, email, senha, contato):
     user = User()
     user.username = email
     user.password = senhaCrip
-    print(email)
+    print("Senha adicionar")
+    print(senhaCrip)
 
     user.save()
 
@@ -169,21 +170,12 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
 
 def autenticar(request, email, senha):
     try:
-        print("senha autenticar")
-        print(senha)
-        print("Email autenticar")
-        print(email)
-        print("senha crip")
         senhaCrip = make_password(password=senha, salt=None, hasher='pbkdf2_sha256')
         print(senhaCrip)
-        
-        user = User.objects.get(email=email)
-        print(user)
         corresponde = check_password(password=senha, encoded=senhaCrip)
         if corresponde:
-            print("Corresponde")
-            user = authenticate(request, username=email)
-            print("Não foi")
+            
+            user = authenticate(request, username=email, password=senhaCrip)
             usuarios = models.Usuario.objects.filter(user=user.id)
             return HttpResponse(serializers.serialize("json", usuarios))
         
