@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Pedido',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status', models.CharField(choices=[('Feito', 'Feito'), ('Recebido', 'Recebido'), ('Iniciado', 'Iniciado'), ('Saiu para entrega', 'Saiu para entrega'), ('Entregue', 'Entregue')], default='Feito', max_length=50, verbose_name='Status')),
+                ('status', models.CharField(choices=[('Feito', 'Feito'), ('Recebido', 'Recebido'), ('Iniciado', 'Iniciado'), ('Saiu para entrega', 'Saiu para entrega'), ('Entregue', 'Entregue'),], default='Feito', max_length=50, verbose_name='Status')),
                 ('dataHoraPedido', models.CharField(max_length=20, verbose_name='Data/Hora do pedido')),
                 ('dataHoraEntrega', models.CharField(blank=True, max_length=20, verbose_name='Data/Hora da entrega')),
                 ('formaPagamento', models.CharField(choices=[('Dinheiro', 'Dinheiro'), ('Cartão', 'Cartão')], max_length=50, verbose_name='Forma de pagamento')),

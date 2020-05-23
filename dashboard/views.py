@@ -91,8 +91,6 @@ def adicionarUsuario(request, nome, email, senha, contato):
     user = User()
     user.username = email
     user.password = senhaCrip
-    print("Senha adicionar")
-    print(senhaCrip)
 
     user.save()
 

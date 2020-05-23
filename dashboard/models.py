@@ -60,6 +60,8 @@ class Pedido(models.Model):
         ('Iniciado', 'Iniciado'),
         ('Saiu para entrega', 'Saiu para entrega'),
         ('Entregue', 'Entregue'),
+        ('Cancelado', 'Cancelado'),
+
     ]
 
     FORMA_PAGAMENTO = [
