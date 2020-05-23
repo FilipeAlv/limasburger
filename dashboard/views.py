@@ -87,7 +87,7 @@ def cancelarPedido(request, id):
     pedido = models.Pedido.objects.get(id=id)
     pedido.status = "Cancelado"
     pedido.save()
-    return HttpResponse(serializers.serialize("json", pedido))
+    return HttpResponse('[{"status":"sucesso"}]')
 
 # add
 
