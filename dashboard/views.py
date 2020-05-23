@@ -180,7 +180,8 @@ def autenticar(request, email, senha):
         corresponde = check_password(password=senha, encoded=user.password)
         if corresponde:
             print("Corresponde")
-            user = authenticate(request, username=email, password=senhaCrip)
+            user = authenticate(request, username=email)
+            print("Atenticado")
             usuarios = models.Usuario.objects.filter(user=user.id)
             return HttpResponse(serializers.serialize("json", usuarios))
 
