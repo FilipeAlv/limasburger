@@ -87,6 +87,8 @@ def adicionarUsuario(request, nome, email, senha, contato):
     user = User()
     user.username = email
     user.password = senha
+    print("Adicionar email")
+    print(email)
 
     user.save()
 
@@ -166,7 +168,10 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
 
 def autenticar(request, email, senha):
     try:
+        print("senha autenticar")
         print(senha)
+        print("Email autenticar")
+        print(email)
         user = authenticate(request, username=email, password=senha)
         usuarios = models.Usuario.objects.filter(user=user.id)
         return HttpResponse(serializers.serialize("json", usuarios))
