@@ -88,6 +88,9 @@ def adicionarUsuario(request, nome, email, senha, contato):
     user.username = email
     user.password = senha
 
+    print(senha)
+    print(user.password)
+
     user.save()
 
     usuario = models.Usuario()
