@@ -6,6 +6,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.hashers import make_password, check_password
 
 
 def listarProdutosCatalogo(request, init, fim):
@@ -84,10 +85,10 @@ def listarEnderecoPorId(request, id):
 
 
 def adicionarUsuario(request, nome, email, senha, contato):
+    senhaCrip = make_password(password=senha, salt=None, hasher='pbkdf2_sha256')
     user = User()
     user.username = email
-    user.password = senha
-    print("Adicionar email")
+    user.password = senhaCrip
     print(email)
 
     user.save()
@@ -172,7 +173,10 @@ def autenticar(request, email, senha):
         print(senha)
         print("Email autenticar")
         print(email)
-        user = authenticate(request, username=email, password=senha)
+        print("senha crip")
+        senhaCrip = senhaCrip = make_password(password=senha, salt=None, hasher='pbkdf2_sha256')
+        print(senhaCrip)
+        user = authenticate(request, username=email, password=senhaCrip)
         usuarios = models.Usuario.objects.filter(user=user.id)
         return HttpResponse(serializers.serialize("json", usuarios))
     except:
