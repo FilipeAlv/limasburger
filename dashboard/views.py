@@ -172,15 +172,13 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
 
 def autenticar(request, email, senha):
     try:
-        senhaCrip = make_password(
-            password=senha, salt=None, hasher='pbkdf2_sha256')
-        print(senhaCrip)
-        user =  User.objects.get(username=email)
+        user = User.objects.get(username=email)
+        print("User")
         print(user)
         corresponde = check_password(password=senha, encoded=user.password)
         if corresponde:
             print("Corresponde")
-            user = authenticate(request, username=email)
+            user = authenticate(request, username=email, password=user.password)
             print("altenticou")
             usuarios = models.Usuario.objects.filter(user=user.id)
             return HttpResponse(serializers.serialize("json", usuarios))
