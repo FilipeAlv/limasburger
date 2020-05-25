@@ -159,6 +159,8 @@ def addProdutoPedido(request, quantidade, produtoId):
 
     return HttpResponse('[{"status":"sucesso"}]')
 
+# editar
+
 
 def editarEndereco(request, id, bairro, rua, numero, referencia):
     endereco = models.Endereco.objects.get(id=id)
@@ -173,7 +175,31 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
+def editarPedido(id, request, formaPagamento, status, cliente, endereco, dataHoraEntrega, dataHoraPedido, valorTotal):
+    pedido = models.Pedido.objects.get(id=id)
+    pedido.cliente = models.Usuario.objects.get(id=cliente)
+    pedido.Endereco = models.Endereco.objects.get(id=endereco)
+    pedido.dataHoraEntrega = dataHoraEntrega
+    pedido.dataHoraPedido = dataHoraPedido
+    pedido.status = status
+    pedido.ValorTotal = float(valorTotal)
+    pedido.formaPagamento = formaPagamento
+    pedido.save()
+    return HttpResponse('[{"status":"sucesso"}]')
+
+
+def editarProdutoPedido(request, quantidade, produtoId):
+    produtoPedido = models.ProdutoPedido()
+    produto = models.Produto.objects.get(id=produtoId)
+
+    produtoPedido.produto = produto
+    produtoPedido.quantidade = quantidade
+    produtoPedido.save()
+
+    return HttpResponse('[{"status":"sucesso"}]')
+    
 # autenticar
+
 
 def autenticar(request, email, senha):
     try:
