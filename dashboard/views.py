@@ -177,14 +177,23 @@ def editarEndereco(request, id, bairro, rua, numero, referencia):
 
 def editarPedido(request, id, formaPagamento, status, cliente, endereco, dataHoraEntrega, dataHoraPedido, valorTotal):
     pedido = models.Pedido.objects.get(id=id)
+    print("Passou aqui 1")
     pedido.cliente = models.Usuario.objects.get(id=cliente)
+    print("Passou aqui 2")
     pedido.Endereco = models.Endereco.objects.get(id=endereco)
+    print("Passou aqui 3")
     pedido.dataHoraEntrega = dataHoraEntrega
+    print("Passou aqui 4")
     pedido.dataHoraPedido = dataHoraPedido
+    print("Passou aqui 5")
     pedido.status = status
-    pedido.ValorTotal = float(valorTotal)
+    print("Passou aqui 6")
+    pedido.ValorTotal =float(valorTotal)
+    print("Passou aqui 7")
     pedido.formaPagamento = formaPagamento
+    print("Passou aqui 8")
     pedido.save()
+    print("Salvou")
     return HttpResponse('[{"status":"sucesso"}]')
 
 
