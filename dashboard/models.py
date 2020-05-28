@@ -33,6 +33,7 @@ class ProdutoPedido(models.Model):
     quantidade = models.IntegerField(blank=False)
     produto = models.ForeignKey(
         to=Produto, on_delete=models.CASCADE, blank=False)
+
     def __str__(self):
         return self.produto.nome
 
@@ -45,12 +46,20 @@ class Endereco(models.Model):
 
 
 class Usuario(models.Model):
+    CHOICES_TIPO = [
+        ('Cliente', 'Cliente'),
+        ('Adm', 'Adm'),
+
+
+    ]
     user = models.ForeignKey(
         User, related_name='profile', on_delete=models.CASCADE)
     nome = models.CharField(max_length=255, blank=False)
     enderecos = models.ManyToManyField(to=Endereco)
     contato = models.CharField(max_length=20, blank=False)
     status = models.CharField(max_length=30, blank=False)
+    tipo = models.CharField('Tipo', max_length=50,
+                            choices=CHOICES_TIPO, default='Cliente')
 
 
 class Pedido(models.Model):
