@@ -175,6 +175,11 @@ def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento):
     util.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
+
+def listarUtil(request, id):
+    util = models.Util.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", util))
+
 # editar
 
 

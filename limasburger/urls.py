@@ -67,6 +67,7 @@ urlpatterns = [
 
     path('util/add/<str:horaInicialFuncionamento>&<str:horaFinalFuncionamento>', views.addUtil),
     path('util/editar/<int:id>&<str:horaInicialFuncionamento>&<str:horaFinalFuncionamento>', views.editarUtil),
+    path('util/listar/<int:id>', views.listarUtil),
 
     path('listar/listarPorIdProduto/<int:id>',
          views.listarPorIdProduto),
