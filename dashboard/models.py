@@ -94,7 +94,7 @@ class Pedido(models.Model):
         Usuario, related_name='Usuario', on_delete=models.CASCADE)
 
 
-class Util(models.Models):
+class Util(models.Model):
     hora_inicial_funcionamento = models.CharField(
         "Hora inicial de funcionamento", max_length=10, blank=False)
     hora_final_funcionamento = models.CharField(
