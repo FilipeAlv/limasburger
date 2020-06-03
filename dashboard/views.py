@@ -161,11 +161,13 @@ def addProdutoPedido(request, quantidade, produtoId):
 
 
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento):
+    print("Entrou")
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
-
+    print("chegou")
     util.save()
+    print("Salvou")
     return HttpResponse('[{"status":"sucesso"}]')
 
 
