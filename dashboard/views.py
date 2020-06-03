@@ -161,18 +161,19 @@ def addProdutoPedido(request, quantidade, produtoId):
 
 
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento):
-    print("Entrou")
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
-    print("chegou")
     util.save()
-    print("Salvou")
     return HttpResponse('[{"status":"sucesso"}]')
 
 
 def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento):
-    pass
+    util = models.Util.objects.get(id=id)
+    util.hora_final_funcionamento = horaFinalFuncionamento
+    util.hora_inicial_funcionamento = horaInicialFuncionamento
+    util.save()
+    return HttpResponse('[{"status":"sucesso"}]')
 
 # editar
 
