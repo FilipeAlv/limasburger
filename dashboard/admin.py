@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class ProdutoAdmin(admin.ModelAdmin):
     model = models.Produto
-    list_display = ['nome', 'valor', 'status','id']
+    list_display = ['nome', 'valor', 'status', 'id']
 
 
 class IngredienteAdmin(admin.ModelAdmin):
@@ -20,12 +20,17 @@ class ProdutoPedidoAdmin(admin.ModelAdmin):
 
 class PedidoAdmin(admin.ModelAdmin):
     model = models.Pedido
-    list_display = ['cliente', 'status', 'dataHoraPedido','id','cliente']
+    list_display = ['cliente', 'status', 'dataHoraPedido', 'id', 'cliente']
+
 
 class UserAdmin(admin.ModelAdmin):
-	model = models.Usuario
-	list_display = ['nome','id']
+    model = models.Usuario
+    list_display = ['nome', 'id']
 
+
+class UtilAdmin(admin.ModelAdmin):
+    model = models.Util
+    list_display = ['id']
 
 
 admin.site.register(models.Produto, ProdutoAdmin)
@@ -34,4 +39,4 @@ admin.site.register(models.ProdutoPedido, ProdutoPedidoAdmin)
 admin.site.register(models.Endereco)
 admin.site.register(models.Usuario, UserAdmin)
 admin.site.register(models.Pedido, PedidoAdmin)
-
+admin.site.register(models.Util, UtilAdmin)

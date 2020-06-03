@@ -159,6 +159,19 @@ def addProdutoPedido(request, quantidade, produtoId):
 
     return HttpResponse('[{"status":"sucesso"}]')
 
+
+def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento):
+    util = models.Util()
+    util.hora_final_funcionamento = horaFinalFuncionamento
+    util.hora_inicial_funcionamento = horaInicialFuncionamento
+
+    util.save()
+    return HttpResponse('[{"status":"sucesso"}]')
+
+
+def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento):
+    pass
+
 # editar
 
 
@@ -182,7 +195,7 @@ def editarPedido(request, id, formaPagamento, status, cliente, endereco, dataHor
     pedido.dataHoraEntrega = dataHoraEntrega
     pedido.dataHoraPedido = dataHoraPedido
     pedido.status = status
-    pedido.ValorTotal =float(valorTotal)
+    pedido.ValorTotal = float(valorTotal)
     pedido.formaPagamento = formaPagamento
     pedido.save()
     return HttpResponse('[{"status":"sucesso"}]')

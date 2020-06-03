@@ -92,3 +92,10 @@ class Pedido(models.Model):
         Endereco, related_name='Endereco', on_delete=models.CASCADE)
     cliente = models.ForeignKey(
         Usuario, related_name='Usuario', on_delete=models.CASCADE)
+
+
+class Util(models.Models):
+    hora_inicial_funcionamento = models.CharField(
+        "Hora inicial de funcionamento", max_length=10, blank=False)
+    hora_final_funcionamento = models.CharField(
+        "Hora inicial de funcionamento", max_length=10, blank=False)
