@@ -177,7 +177,8 @@ def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento):
 
 
 def listarUtil(request):
-    util = models.Util.objects.all()[0]
+    temp = models.Util.objects.all().order_by("id")[0]
+    util = models.Util.objects.filter(id=temp.id)
     return HttpResponse(serializers.serialize("json", util))
 
 # editar
