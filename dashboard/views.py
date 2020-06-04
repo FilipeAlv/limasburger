@@ -167,7 +167,9 @@ def buscarPedido(request, desc):
 
     pedidos = models.Pedido.objects.all()
     now = datetime.now()
+    
     for pedido in pedidos:
+        print(pedido.status)
         pedido_data = datetime.strptime(
             pedido.dataHoraPedido, '%d/%m/%Y').date()
         if (pedido_data.month == now.month) and (pedido_data.day == now.day) and (pedido.status == desc):

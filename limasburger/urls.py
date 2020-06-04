@@ -55,7 +55,7 @@ urlpatterns = [
          views.addPedido),
     path('editar/pedido/<int:id>&<str:formaPagamento>&<str:status>&<int:cliente>&<int:endereco>&<str:dataHoraEntrega>&<str:dataHoraPedido>&<str:valorTotal>',
          views.editarPedido),
-    path('buscar/pedido/<str:desc>',
+    path('buscar/pedido/geral/<str:desc>',
          views.buscarPedido),
 
     path('add/addProdutoPedido/<int:quantidade>&<int:produtoId>',
