@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password, check_password
+from datetime import datetime
 
 
 def listarProdutosCatalogo(request, init, fim):
@@ -158,6 +159,21 @@ def addProdutoPedido(request, quantidade, produtoId):
     pedido.save()
 
     return HttpResponse('[{"status":"sucesso"}]')
+
+
+def buscarPedido(request, desc):
+
+    lista = []
+
+    pedidos = models.Pedido.objects.all()
+    now = datetime.now()
+    for pedido in pedidos:
+        pedido_data = datetime.strptime(
+            pedido.dataHoraPedido, '%d/%m/%Y').date()
+        if (pedido_data.month == now.month) and (pedido_data.day == now.day) and (pedido.status == desc):
+            lista.append(pedido)
+
+    return HttpResponse(serializers.serialize("json", lista))
 
 
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
