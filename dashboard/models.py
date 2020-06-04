@@ -99,3 +99,4 @@ class Util(models.Model):
         "Hora inicial de funcionamento", max_length=10, blank=False)
     hora_final_funcionamento = models.CharField(
         "Hora inicial de funcionamento", max_length=10, blank=False)
+    tempoEntrega = models.CharField("Tempo de entrega estimado", max_length=10)
