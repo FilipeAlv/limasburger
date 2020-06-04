@@ -160,18 +160,20 @@ def addProdutoPedido(request, quantidade, produtoId):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento):
+def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
+    util.tempoEntrega = tempoEntrega
     util.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento):
+def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
     util = models.Util.objects.get(id=id)
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
+    util.tempoEntrega = tempoEntrega
     util.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
