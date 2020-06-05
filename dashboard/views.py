@@ -161,7 +161,7 @@ def addProdutoPedido(request, quantidade, produtoId):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def buscarPedido(request, desc):
+def buscarPedidoDiaStatus(request, status):
 
     lista = []
 
@@ -171,10 +171,15 @@ def buscarPedido(request, desc):
         pedido_data = datetime.strptime(
             pedido.dataHoraPedido, '%d-%m-%Y %H:%M').date()
 
-        if (pedido_data.month == now.month) and (pedido_data.day == now.day) and (pedido.status == desc):
+        if (pedido_data.month == now.month) and (pedido_data.day == now.day) and (pedido.status == status):
             lista.append(pedido)
 
     return HttpResponse(serializers.serialize("json", lista))
+
+
+def buscarPedidoStatus(request, status):
+    pedidos = models.Pedido.objects.filter(status=status)
+    return HttpResponse(serializers.serialize("json", pedidos))
 
 
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
