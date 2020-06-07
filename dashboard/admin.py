@@ -32,7 +32,10 @@ class UtilAdmin(admin.ModelAdmin):
     model = models.Util
     list_display = ['id']
 
-
+class PromocaoAdmin(admin.ModelAdmin):
+    model = models.Promocao
+    list_display = ['id', 'valor']
+    
 admin.site.register(models.Produto, ProdutoAdmin)
 admin.site.register(models.Ingrediente, IngredienteAdmin)
 admin.site.register(models.ProdutoPedido, ProdutoPedidoAdmin)
@@ -40,3 +43,5 @@ admin.site.register(models.Endereco)
 admin.site.register(models.Usuario, UserAdmin)
 admin.site.register(models.Pedido, PedidoAdmin)
 admin.site.register(models.Util, UtilAdmin)
+admin.site.register(models.Promocao, PromocaoAdmin)
+

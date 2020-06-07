@@ -182,6 +182,11 @@ def buscarPedidoStatus(request, status):
     return HttpResponse(serializers.serialize("json", pedidos))
 
 
+
+def buscarPromocao(request, id):
+    promocao = models.Promocao.objects.filter(id=id)
+    return HttpResponse(serializers.serialize("json", promocao))
+
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
