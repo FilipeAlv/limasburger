@@ -14,8 +14,6 @@ class Ingrediente(models.Model):
         return self.nome
 
 
-
-
 class Produto(models.Model):
     status_choices = (
         ("Disponível", "Disponível"),
@@ -26,7 +24,6 @@ class Produto(models.Model):
     status = models.CharField(max_length=100, choices=status_choices)
     ingredientes = models.ManyToManyField(to=Ingrediente)
     imagem = models.FileField(upload_to="", null=True, )
-   
 
     def __str__(self):
         return self.nome
@@ -103,3 +100,8 @@ class Util(models.Model):
     hora_final_funcionamento = models.CharField(
         "Hora inicial de funcionamento", max_length=10, blank=False)
     tempoEntrega = models.CharField("Tempo de entrega estimado", max_length=10)
+
+
+class Teste(models.Model):
+    hora_inicial_funcionamento = models.CharField(
+        "Hora inicial de funcionamento", max_length=10, blank=False)
