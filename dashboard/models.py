@@ -28,8 +28,8 @@ class Produto(models.Model):
     ingredientes = models.ManyToManyField(to=Ingrediente)
     imagem = models.FileField(upload_to="", null=True, )
     promocao = models.ForeignKey(
-        to=Promocao, on_delete=models.CASCADE, blank=True, null = True)
-        
+        to=Promocao, on_delete=models.CASCADE, blank=True, null = False)
+
     def __str__(self):
         return self.nome
 
