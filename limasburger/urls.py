@@ -78,8 +78,7 @@ urlpatterns = [
          views.listarPorIdProduto),
 
 
-    path('buscar/promocao/<int:id>',
-         views.buscarPromocao),
+    
 ]
 
 
