@@ -14,8 +14,7 @@ class Ingrediente(models.Model):
         return self.nome
 
 
-class Promocao(models.Model):
-    valor = models.DecimalField(max_digits=10, decimal_places=2)
+
 
 
 class Produto(models.Model):
@@ -28,8 +27,8 @@ class Produto(models.Model):
     status = models.CharField(max_length=100, choices=status_choices)
     ingredientes = models.ManyToManyField(to=Ingrediente)
     imagem = models.FileField(upload_to="", null=True, )
-    promocao = models.ForeignKey(
-        to=Promocao, on_delete=models.CASCADE, blank=True)
+    #promocao = models.ForeignKey(
+     #   to=Promocao, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.nome
