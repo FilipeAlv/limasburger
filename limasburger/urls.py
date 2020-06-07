@@ -78,8 +78,8 @@ urlpatterns = [
          views.listarPorIdProduto),
 
 
-    # path('buscar/promocao/<int:id>',
-    #    views.buscarPromocao),
+    path('buscar/promocao/<int:id>',
+         views.buscarPromocao),
 ]
 
 
