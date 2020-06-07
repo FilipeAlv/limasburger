@@ -76,6 +76,10 @@ urlpatterns = [
 
     path('listar/listarPorIdProduto/<int:id>',
          views.listarPorIdProduto),
+     
+     
+    path('buscar/promocao/<int:id>',
+         views.buscarPromocao),
 
 
     
