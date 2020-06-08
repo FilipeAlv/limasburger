@@ -84,6 +84,8 @@ urlpatterns = [
          views.addPromocao),
     path('editar/promocao/<int:id>&<str:valor>',
          views.editarPromocao),
+    path('deletar/promocao/<int:id>',
+         views.removerPromocao),
 
 
 
