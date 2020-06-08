@@ -201,6 +201,12 @@ def editarPromocao(request, id, valor):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
+def removerPromocao(request, id):
+    promocao = models.Promocao.objects.get(id=id)
+    promocao.delete()
+    return HttpResponse('[{"status":"sucesso"}]')
+
+
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
