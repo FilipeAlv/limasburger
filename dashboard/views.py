@@ -211,20 +211,22 @@ def removerPromocao(request, id):
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
+def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega, taxaEntrega):
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
     util.tempoEntrega = tempoEntrega
+    util.taxaEntrega = taxaEntrega
     util.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
 
-def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
+def editarUtil(request, id, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega, taxaEntrega):
     util = models.Util.objects.get(id=id)
     util.hora_final_funcionamento = horaFinalFuncionamento
     util.hora_inicial_funcionamento = horaInicialFuncionamento
     util.tempoEntrega = tempoEntrega
+    util.taxaEntrega = taxaEntrega
     util.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
