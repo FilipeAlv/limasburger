@@ -187,10 +187,14 @@ def buscarPromocao(request, id):
     return HttpResponse(serializers.serialize("json", promocao))
 
 
-def addPromocao(request, valor):
+def addPromocao(request, idProduto, valor):
+    produto = models.Produto.objects.get(id=idProduto)
     promocao = models.Promocao()
     promocao.valor = valor
     promocao.save()
+
+    produto.promocao = promocao
+    produto.save()
     return HttpResponse('[{"status":"sucesso"}]')
 
 

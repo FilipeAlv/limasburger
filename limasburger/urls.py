@@ -80,7 +80,7 @@ urlpatterns = [
 
     path('buscar/promocao/<int:id>',
          views.buscarPromocao),
-    path('add/promocao/<str:valor>',
+    path('add/promocao/<int:idProduto>&<str:valor>',
          views.addPromocao),
     path('editar/promocao/<int:id>&<str:valor>',
          views.editarPromocao),
