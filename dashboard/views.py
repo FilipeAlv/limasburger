@@ -187,6 +187,20 @@ def buscarPromocao(request, id):
     return HttpResponse(serializers.serialize("json", promocao))
 
 
+def addPromocao(request, valor):
+    promocao = models.Promocao()
+    promocao.valor = valor
+    promocao.save()
+    return HttpResponse('[{"status":"sucesso"}]')
+
+
+def editarPromocao(request, id, valor):
+    promocao = models.Promocao.objects.get(id=id)
+    promocao.valor = valor
+    promocao.save()
+    return HttpResponse('[{"status":"sucesso"}]')
+
+
 def addUtil(request, horaInicialFuncionamento, horaFinalFuncionamento, tempoEntrega):
     util = models.Util()
     util.hora_final_funcionamento = horaFinalFuncionamento

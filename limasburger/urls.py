@@ -76,13 +76,17 @@ urlpatterns = [
 
     path('listar/listarPorIdProduto/<int:id>',
          views.listarPorIdProduto),
-     
-     
+
+
     path('buscar/promocao/<int:id>',
          views.buscarPromocao),
+    path('add/promocao/<str:valor>',
+         views.addPromocao),
+    path('editar/promocao/<int:id>&<str:valor>',
+         views.editarPromocao),
 
 
-    
+
 ]
 
 
