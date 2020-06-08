@@ -30,7 +30,7 @@ class UserAdmin(admin.ModelAdmin):
 
 class UtilAdmin(admin.ModelAdmin):
     model = models.Util
-    list_display = ['id']
+    list_display = ['id','hora_inicial_funcionamento','hora_final_funcionamento', 'tempoEntrega','taxaEntrega']
 
 class PromocaoAdmin(admin.ModelAdmin):
     model = models.Promocao
