@@ -17,6 +17,7 @@ class Ingrediente(models.Model):
 class Promocao(models.Model):
     valor = models.DecimalField(max_digits=10, decimal_places=2)
 
+
 class Produto(models.Model):
     status_choices = (
         ("Disponível", "Disponível"),
@@ -28,7 +29,7 @@ class Produto(models.Model):
     ingredientes = models.ManyToManyField(to=Ingrediente)
     imagem = models.FileField(upload_to="", null=True, )
     promocao = models.ForeignKey(
-        to=Promocao, on_delete=models.SET_NULL, blank=True, null = True, default=0)
+        to=Promocao, on_delete=models.SET_NULL, blank=True, null=True, default=0)
 
     def __str__(self):
         return self.nome
@@ -105,6 +106,8 @@ class Util(models.Model):
     hora_final_funcionamento = models.CharField(
         "Hora inicial de funcionamento", max_length=10, blank=False)
     tempoEntrega = models.CharField("Tempo de entrega estimado", max_length=10)
+    taxaEntrega = models.DecimalField(
+        "Taxa de entrega", max_digits=10, decimal_places=2)
 
 
 class Teste(models.Model):
