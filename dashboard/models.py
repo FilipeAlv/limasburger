@@ -66,6 +66,7 @@ class Usuario(models.Model):
     status = models.CharField(max_length=30, blank=False)
     tipo = models.CharField('Tipo', max_length=50,
                             choices=CHOICES_TIPO, default='Cliente')
+    token = models.CharField("Token", max_length=250, blank=False)
 
 
 class Pedido(models.Model):
