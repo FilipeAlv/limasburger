@@ -42,7 +42,7 @@ urlpatterns = [
     path('buscar/ingrediente/<int:id>', views.listarIngredientePorId),
 
 
-    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>',
+    path('add/usuario/<str:nome>&<str:email>&<str:senha>&<str:contato>&<str:token>',
          views.adicionarUsuario),
     path('add/endereco/<int:usuario>&<str:bairro>&<str:rua>&<str:numero>&<str:referencia>',
          views.adicionarEndereco),

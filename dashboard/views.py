@@ -96,7 +96,7 @@ def cancelarPedido(request, id):
 # add
 
 
-def adicionarUsuario(request, nome, email, senha, contato):
+def adicionarUsuario(request, nome, email, senha, contato, token):
     senhaCrip = make_password(
         password=senha, salt=None, hasher='pbkdf2_sha256')
     user = User()
@@ -110,6 +110,7 @@ def adicionarUsuario(request, nome, email, senha, contato):
     usuario.contato = contato
     usuario.nome = nome
     usuario.status = "Ativo"
+    usuario.token = token
 
     usuario.save()
 
