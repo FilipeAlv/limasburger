@@ -31,7 +31,7 @@ urlpatterns = [
 
     path('buscar/usuario/<int:id>', views.listarUsuarioPorId),
     path('buscar/usuario/<str:email>', views.listarUsuarioPorEmail),
-
+    path('buscar/usuarios/', views.listarUsuarios),
     path('usuario/autenticar/<str:email>&<str:senha>', views.autenticar),
 
     path('buscar/enderecos/<int:id>', views.listarEnderecoPorId),
