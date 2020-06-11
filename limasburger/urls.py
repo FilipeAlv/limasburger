@@ -18,7 +18,6 @@ from django.urls import path, include
 from dashboard import views
 from django.conf import settings
 from django.conf.urls.static import static
-from jet_django.urls import jet_urls
 
 urlpatterns = [
     path('jet/', include('jet.urls', 'jet')),
