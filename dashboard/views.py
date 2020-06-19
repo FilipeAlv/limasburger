@@ -31,7 +31,7 @@ def listarProdutosPorNome(request, nome):
     return HttpResponse(serializers.serialize("json", produtos))
 
 def listarProdutoPorNomeIlike(request, nome):
-    produtos = models.Produto.objects.filter(nome__icontains=nome)
+    produtos = models.Produto.objects.filter(nome__icontains=nome).order_by('nome')
     return HttpResponse(serializers.serialize('json', produtos))
 
 def listarPedidoPorUser(request, id):

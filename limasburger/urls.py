@@ -25,7 +25,7 @@ urlpatterns = [
     path('buscar/produtos/<str:nome>-<int:ignore>', views.listarProdutosFilter),
     path('buscar/produtos/<str:nome>', views.listarProdutosPorNome),
     path('buscar/produtos/<int:id>', views.listarProdutosPorId),
-     path('buscar/produtos/ilike/<str:nome>', views.listarProdutoPorNomeIlike),
+    path('buscar/produtos/ilike/<str:nome>', views.listarProdutoPorNomeIlike),
 
 
 
